@@ -13,7 +13,7 @@ public class makeTestUsers {
   //Only for initial testing REMOVE BEFORE PRODUCTION
   //Run this file to setup the users required to use the initial version of the seed
   public static void main(String[] args) {
-    EntityManager em = Persistence.createEntityManagerFactory("CA_3_PU").createEntityManager();
+    EntityManager em = Persistence.createEntityManagerFactory("pu_development").createEntityManager();
     try {
       System.out.println("Creating TEST Users");
       if (em.find(User.class, "user") == null) {
