@@ -32,9 +32,6 @@ public class UserFacade implements IUserFacade {
     }
   }
 
-  /*
-  Return the Roles if users could be authenticated, otherwise null
-   */
   @Override
   public List<String> authenticateUser(String userName, String password) {
     IUser user = getUserByUserId(userName);
