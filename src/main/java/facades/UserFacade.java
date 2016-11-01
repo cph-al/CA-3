@@ -2,6 +2,7 @@ package facades;
 
 import security.IUserFacade;
 import entity.User;
+import entity.Role;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -50,6 +51,8 @@ public class UserFacade implements IUserFacade {
             IUser temp = getUserByUserId(userName);
             User user = new User(userName, password);
             if (temp == null) {
+                Role role = new Role("user");
+                user.addRole(role);
                 em.persist(user);
                 em.getTransaction().commit();
                 return user;
