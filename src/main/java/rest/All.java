@@ -38,7 +38,7 @@ public class All
     @Path("/user")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.TEXT_PLAIN)
     public String createUser(String user)
     {
         User u = (User)gson.fromJson(user, User.class);

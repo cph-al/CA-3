@@ -38,7 +38,7 @@
     </head>
     <body ng-app="myApp">
         <div class="container"  >
-        <form ng-controller="myCtrl as ctrl" ng-submit="ctrl.create()" style="padding: 1em">
+        <form ng-controller="myCtrl as ctrl" ng-show="!isAuthenticated" ng-submit="ctrl.create()" style="padding: 1em">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createUser">Create User</button>
             <div id="createUser" class="modal fade" role="dialog">
                 <div class="modal-dialog">

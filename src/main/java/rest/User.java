@@ -27,7 +27,7 @@ public class User
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.TEXT_PLAIN)
     public String createUser(String user)
     {
         entity.User u = (entity.User) gson.fromJson(user, entity.User.class);       
