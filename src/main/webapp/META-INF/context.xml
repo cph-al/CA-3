@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context path="/seedMaven">
-  <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" maxActive="20" maxIdle="10" maxWait="-1" name="Seed" password="test" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/seed?zeroDateTimeBehavior=convertToNull" username="root"/>
+<Context path="/CA_3">
   <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" maxActive="20" maxIdle="10" maxWait="-1" name="CA_3" password="1234" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/CA_3" username="root"/>
 </Context>

@@ -44,13 +44,13 @@ public class UserFacade implements IUserFacade {
         }
     }
 
-    public IUser createUser(String userName, String password) {
+    public User createUser(String userName, String password) {
         try {
-            EntityManager em = getEntityManager();
-            em.getTransaction().begin();
             IUser temp = getUserByUserId(userName);
             User user = new User(userName, password);
             if (temp == null) {
+                EntityManager em = getEntityManager();
+                em.getTransaction().begin();
                 Role role = new Role("user");
                 user.addRole(role);
                 em.persist(user);
