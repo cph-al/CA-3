@@ -76,9 +76,9 @@
                         <ul class="nav navbar-nav">
                             <li><a href="#/view1">Home</a></li>
                             <li><a href="#/view2">Documentation</a></li>
-                            <li><a href="#/view3">Company Info</a></li>
-                            <li><a href="#/view4">Exchange Rate Info</a></li>
-                            <li><a href="#/view5">All Users</a></li>
+                            <li><a ng-show ="isUser" href="#/view3">Company Info</a></li>
+                            <li><a ng-show ="isUser" href="#/view4">Exchange Rate Info</a></li>
+                            <li><a ng-show ="isAdmin" href="#/view5">All Users</a></li>
                             <li><a href="#/view6">Login Section</a></li> 
                         </ul>
                         <div>
