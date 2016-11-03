@@ -31,10 +31,10 @@ angular.module('myApp', [
                     console.log(self.user.userName +" "+ self.user.passwordHash + " pls");
                     $http.post('api/demoall/user', self.user)
                             .success(function (data, status, headers, config) {
-                                console.log("WERKWORK");
+                                console.log("Works");
                             })
                             .error(function (data, status, headers, config) {
-                                console.log("WHYNOWORK?");
+                                console.log("Doesn't work");
                             });
                 };
             }]);

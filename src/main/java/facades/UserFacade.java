@@ -8,47 +8,60 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.TypedQuery;
 import security.IUser;
 import security.PasswordStorage;
 
-public class UserFacade implements IUserFacade {
+public class UserFacade implements IUserFacade
+{
 
     EntityManagerFactory emf;
 
-    public UserFacade(EntityManagerFactory emf) {
+    public UserFacade(EntityManagerFactory emf)
+    {
         this.emf = emf;
     }
 
-    private EntityManager getEntityManager() {
+    private EntityManager getEntityManager()
+    {
         return emf.createEntityManager();
     }
 
     @Override
-    public IUser getUserByUserId(String id) {
+    public IUser getUserByUserId(String id)
+    {
         EntityManager em = getEntityManager();
-        try {
+        try
+        {
             return em.find(User.class, id);
-        } finally {
+        } finally
+        {
             em.close();
         }
     }
 
     @Override
-    public List<String> authenticateUser(String userName, String password) {
+    public List<String> authenticateUser(String userName, String password)
+    {
         IUser user = getUserByUserId(userName);
-        try {
+        try
+        {
             return user != null && PasswordStorage.verifyPassword(password, user.getPassword()) ? user.getRolesAsStrings() : null;
-        } catch (PasswordStorage.CannotPerformOperationException | PasswordStorage.InvalidHashException ex) {
+        } catch (PasswordStorage.CannotPerformOperationException | PasswordStorage.InvalidHashException ex)
+        {
             Logger.getLogger(UserFacade.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
     }
 
-    public User createUser(String userName, String password) {
-        try {
-            IUser temp = getUserByUserId(userName);
+    public User createUser(String userName, String password)
+    {
+        try
+        {
+            IUser u = getUserByUserId(userName);
             User user = new User(userName, password);
-            if (temp == null) {
+            if (u == null)
+            {
                 EntityManager em = getEntityManager();
                 em.getTransaction().begin();
                 Role role = new Role("user");
@@ -58,10 +71,27 @@ public class UserFacade implements IUserFacade {
                 return user;
             }
             return null;
-        } catch (PasswordStorage.CannotPerformOperationException ex) {
+        } catch (PasswordStorage.CannotPerformOperationException ex)
+        {
             Logger.getLogger(UserFacade.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
     }
 
+    public List<User> getAllUsers()
+    {
+        EntityManager em = getEntityManager();
+        TypedQuery<User> persons = em.createQuery("SELECT USERNAME FROM SEED_USER USERNAME", User.class);
+        return persons.getResultList();
+    }
+
+    public User deleteUser(String username)
+    {
+        EntityManager em = getEntityManager();
+        em.getTransaction().begin();
+        User user = em.find(User.class, username);
+        em.remove(user);
+        em.getTransaction().commit();
+        return user;
+    }
 }
