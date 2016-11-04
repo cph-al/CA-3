@@ -7,7 +7,7 @@ angular.module('myApp.view3', ['ngRoute'])
                 });
             }])
         
-        .controller('View3Ctrl', function ($http, $scope) {
+        .controller('View3Ctrl',['$http','$scope', function ($http, $scope, $location) {
             $http({
                 method: 'GET',
                 url: 'api/user'
@@ -18,29 +18,17 @@ angular.module('myApp.view3', ['ngRoute'])
                 $location.path('/view1');
             });
 
-        });
+        }]);
 
-
-//.controller('View3Ctrl', function ($http, $scope, $location) {
-//    $http.get('/api/user')
-//            .success(function (data, status, headers, config) {
-//                $scope.data = data;
-//            })
-//            .error(function (data, status, headers, config) {
-//            $scope.error = res.status + ": " + res.data.statusText;
-//                $location.path('/view1')
-//            });
-//
-//});
-        .controller('View3Ctrl', function ($http, $scope, $location) {
-            $http.get('api/demoall')
-                    .success(function (data, status, headers, config)
-                    {
-                        $scope.data = data;
-                    })
-                    .error(function (data, status, headers, config)
-                    {
-                        $location.path('/view1');
-                    });
-        });
+//        .controller('View3Ctrl', function ($http, $scope, $location) {
+//            $http.get('api/demoall')
+//                    .success(function (data, status, headers, config)
+//                    {
+//                        $scope.data = data;
+//                    })
+//                    .error(function (data, status, headers, config)
+//                    {
+//                        $location.path('/view1');
+//                    });
+//        });
         

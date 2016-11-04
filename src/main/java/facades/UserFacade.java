@@ -81,8 +81,8 @@ public class UserFacade implements IUserFacade
     public List<User> getAllUsers()
     {
         EntityManager em = getEntityManager();
-        TypedQuery<User> persons = (TypedQuery<User>) em.createNativeQuery("SELECT * FROM SEED_USER_USER_ROLE ", User.class);
-        return persons.getResultList();
+        TypedQuery<User> users = (TypedQuery<User>) em.createNativeQuery("SELECT USERNAME FROM SEED_USER");
+        return users.getResultList();
     }
 
     public User deleteUser(String username)

@@ -5,21 +5,37 @@
         <p>Server Time: <b style="color: darkblue">{{data.serverTime}}</b></p>
     </div>
     <div>
-        <h4>Find Company Information</h4>
-        <form>
-            Søgetekst: <input type="text" style="width: 10em;" placeholder="Påkrævet">
-            Søgemulighed: <select style="padding: 1em">
-                <option value="Almindelig">Almindelig</option>
-                <option value="CVR">CVR</option>
-                <option value="Navn">Navn</option>
-                <option value="Produktionsenhed">Produktionsenhed</option>
-                <option value="Telefonnummer">Telefonnummer</option>        
-            </select>
-            Land: <select style="padding: 1em">
-                <option value="DK">DK</option>
-                <option value="NO">NO</option>
-            </select>
-        </form>
+        <table style="padding-top: 1em; padding-bottom: 1em">
+            <h4>Find Company Information</h4>
+            <form>
+                <tr>
+                    <td>
+                        Søgetekst: <input type="text" style="width: 10em;" placeholder="Påkrævet">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding-top: 1em; padding-bottom: 1em">
+                        Søgemulighed: <select>
+                            <option value="Almindelig">Almindelig</option>
+                            <option value="CVR">CVR</option>
+                            <option value="Navn">Navn</option>
+                            <option value="Produktionsenhed">Produktionsenhed</option>
+                            <option value="Telefonnummer">Telefonnummer</option>        
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Land: <select>
+                            <option value="DK">DK</option>
+                            <option value="NO">NO</option>
+                        </select>
+                    </td>
+                </tr>
+            </form>
+        </table>
     </div>
-    <button class="btn btn-success">Søg</button>   
+    <div style="padding-top: 1em; padding-bottom: 1em">
+        <button class="btn btn-success">Søg</button>   
+    </div>
 </html>

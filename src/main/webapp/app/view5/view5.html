@@ -1,4 +1,17 @@
-<h3>All users</h3>
-<table ng-controller="userCtrl">
-    
-</table>
+<html>
+    <h3>All users</h3>
+    <body ng-app="myApp.view5">
+        <table ng-controller="View5Ctrl as ctrl">
+            <tr ng-repeat="users in ctrl.data">
+                <td>
+                    {{users}}
+                </td>
+                <td>
+                    <form ng-submit="ctrl.delete()" style="padding: 0.5em">
+                        <input class="btn btn-primary" type="submit" Value="Delete">
+                    </form>
+                </td>
+            </tr>          
+        </table>
+    </body>
+</html>

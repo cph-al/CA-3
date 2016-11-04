@@ -40,10 +40,8 @@ public class makeTestUsers
                 em.persist(both);
                 em.getTransaction().commit();
                 System.out.println("Created TEST Users");
-
-                //System.out.println(facade.getAllUsers().get(0).getRoles().get(0).getRoleName());
-
-            }
+        }
+                //System.out.println(facade.getAllUsers().get(0).getUserName());
 
         } catch (Exception ex)
         {

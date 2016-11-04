@@ -5,24 +5,43 @@ angular.module('myApp.view5', ['ngRoute'])
         .config(['$routeProvider', function ($routeProvider) {
                 $routeProvider.when('/view5', {
                     templateUrl: 'app/view5/view5.html',
-                    controller: 'View5Ctrl'
+                    //controller: 'View5Ctrl'
                 });
             }])
 
-        .controller('View5Ctrl', function ($http, $scope, $location) {
-            $http.get('api/admin')
+//        .controller('View5Ctrl', ['$scope', '$http', function ($http, $scope) {
+//                $scope.data = {};
+//                $http.get('api/admin/users')
+//                        .success(function (data, status, headers, config) {
+//                            $scope.data = data;
+//                            console.log("YES")
+//                        })
+//                        .error(function (data, status, headers, config) {
+//                            console.log("nope");
+//                        })
+//            }])
+
+        .controller('View5Ctrl', function ($http, $scope) {
+            var self = this;
+            self.data = {};
+            $http.get('api/admin/users')
                     .success(function (data, status, headers, config) {
-                        $scope.data = data;
+                        self.data = data;
+                        console.log("YES" + data)
                     })
                     .error(function (data, status, headers, config) {
-                        $location.path('/view1')
-                    });
+                        console.log("nope");
+                    })
+            self.user = {userName: ""}
+            self.delete = function ($http) {
+                $http.delete('/api/admin/user/')
+                        .success(function (data, status, headers, config) {
+                            self.data = data
+                            console.log("WORKS")
+                        })
+                        .error(function (data, status, headers, config) {
+                            console.log("nope")
+                        });
+            }
+        });
 
-        })
-                .controller('userCtrl', function($http, $scope) {
-                    $http.get('api/admin/users')
-                    .success(function (data, status, headers, config) {
-                        $scope.data = data;
-                    
-                    });
-                });
