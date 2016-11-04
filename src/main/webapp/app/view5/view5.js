@@ -9,18 +9,6 @@ angular.module('myApp.view5', ['ngRoute'])
                 });
             }])
 
-//        .controller('View5Ctrl', ['$scope', '$http', function ($http, $scope) {
-//                $scope.data = {};
-//                $http.get('api/admin/users')
-//                        .success(function (data, status, headers, config) {
-//                            $scope.data = data;
-//                            console.log("YES")
-//                        })
-//                        .error(function (data, status, headers, config) {
-//                            console.log("nope");
-//                        })
-//            }])
-
         .controller('View5Ctrl', function ($http, $scope) {
             var self = this;
             self.data = {};
