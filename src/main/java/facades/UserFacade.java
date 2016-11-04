@@ -64,7 +64,7 @@ public class UserFacade implements IUserFacade
             {
                 EntityManager em = getEntityManager();
                 em.getTransaction().begin();
-                Role role = new Role("user");
+                Role role = new Role("User");
                 user.addRole(role);
                 em.persist(user);
                 em.getTransaction().commit();
@@ -81,7 +81,7 @@ public class UserFacade implements IUserFacade
     public List<User> getAllUsers()
     {
         EntityManager em = getEntityManager();
-        TypedQuery<User> persons = em.createQuery("SELECT USERNAME FROM SEED_USER USERNAME", User.class);
+        TypedQuery<User> persons = (TypedQuery<User>) em.createNativeQuery("SELECT * FROM SEED_USER_USER_ROLE ", User.class);
         return persons.getResultList();
     }
 
