@@ -7,10 +7,11 @@
                     {{users}}
                 </td>
                 <td>
-                    <form ng-submit="ctrl.delete()" style="padding: 0.5em">
+                    <form ng-submit="ctrl.delete($index)" style="padding: 0.5em">
                         <input class="btn btn-primary" type="submit" Value="Delete">
                     </form>
                 </td>
+                
             </tr>          
         </table>
     </body>

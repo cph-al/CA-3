@@ -15,21 +15,20 @@ angular.module('myApp.view5', ['ngRoute'])
             $http.get('api/admin/users')
                     .success(function (data, status, headers, config) {
                         self.data = data;
-                        console.log("YES" + data)
+                        console.log("YES " + data);
                     })
                     .error(function (data, status, headers, config) {
                         console.log("nope");
-                    })
-            self.user = {userName: ""}
-            self.delete = function ($http) {
-                $http.delete('/api/admin/user/')
+                    });
+            self.delete = function(index) {
+                        console.log(self.data[index]);
+                $http.delete('/api/admin/user/'+self.data[index])
                         .success(function (data, status, headers, config) {
-                            self.data = data
-                            console.log("WORKS")
+                            console.log("deleting "+index);
                         })
                         .error(function (data, status, headers, config) {
-                            console.log("nope")
+                            console.log("failed");
                         });
-            }
+            };
         });
 
