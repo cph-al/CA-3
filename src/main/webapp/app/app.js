@@ -28,7 +28,7 @@ angular.module('myApp', [
                 var self = this;
                 self.user = {userName: "", passwordHash: ""}
                 self.create = function () {
-                    console.log(self.user.userName +" "+ self.user.passwordHash + " pls");
+                    console.log(self.user.userName +" "+ self.user.passwordHash);
                     $http.post('api/demoall/user', self.user)
                             .success(function (data, status, headers, config) {
                                 console.log("Works");

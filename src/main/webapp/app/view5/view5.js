@@ -18,4 +18,11 @@ angular.module('myApp.view5', ['ngRoute'])
                         $location.path('/view1')
                     });
 
-        });
+        })
+                .controller('userCtrl', function($http, $scope) {
+                    $http.get('api/admin/users')
+                    .success(function (data, status, headers, config) {
+                        $scope.data = data;
+                    
+                    });
+                });

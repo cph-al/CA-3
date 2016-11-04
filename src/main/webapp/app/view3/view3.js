@@ -6,6 +6,32 @@ angular.module('myApp.view3', ['ngRoute'])
                     controller: 'View3Ctrl'
                 });
             }])
+        
+        .controller('View3Ctrl', function ($http, $scope) {
+            $http({
+                method: 'GET',
+                url: 'api/user'
+            }).then(function successCallback(res) {
+                $scope.data = res.data.message;
+            }, function errorCallback(res) {
+                $scope.error = res.status + ": " + res.data.statusText;
+                $location.path('/view1');
+            });
+
+        });
+
+
+//.controller('View3Ctrl', function ($http, $scope, $location) {
+//    $http.get('/api/user')
+//            .success(function (data, status, headers, config) {
+//                $scope.data = data;
+//            })
+//            .error(function (data, status, headers, config) {
+//            $scope.error = res.status + ": " + res.data.statusText;
+//                $location.path('/view1')
+//            });
+//
+//});
         .controller('View3Ctrl', function ($http, $scope, $location) {
             $http.get('api/demoall')
                     .success(function (data, status, headers, config)

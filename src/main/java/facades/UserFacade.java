@@ -88,10 +88,21 @@ public class UserFacade implements IUserFacade
     public User deleteUser(String username)
     {
         EntityManager em = getEntityManager();
-        em.getTransaction().begin();
-        User user = em.find(User.class, username);
-        em.remove(user);
-        em.getTransaction().commit();
-        return user;
+        try
+        {
+            em.getTransaction().begin();
+            User user = em.find(User.class, username);
+            em.remove(user);
+            em.getTransaction().commit();
+            System.out.println("Deleted "+username);
+            return user;
+        } catch (Exception ex)
+        {
+            Logger.getLogger(UserFacade.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        } finally
+        {
+            em.close();
+        }
     }
 }
