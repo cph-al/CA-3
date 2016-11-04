@@ -1,23 +1,25 @@
 <HTML>
-<h3>This is the partial for view 3 abekat.</h3>
-<div>
-  <p>Data from server (Admins only) <b style="color: darkblue">{{data.message}}</b></p>
-  <p>Server Time: <b style="color: darkblue">{{data.serverTime}}</b></p>
-</div>
-
-<form>
-    Søgetekst: <input type="text" style="width: 10em;" placeholder="Påkrævet">
-    Søgemulighed: <select>
-        <option value="Almindelig">Almindelig</option>
-        <option value="CVR">CVR</option>
-        <option value="Navn">Navn</option>
-        <option value="Produktionsenhed">Produktionsenhed</option>
-        <option value="Telefonnummer">Telefonnummer</option>        
-    </select>
-    Land<select>
-        <option value="DK">DK</option>
-        <option value="NO">NO</option>
-    </select>
-</form>
-<button class="btn btn-success">Søg</button>   
+    <h3>Company Information</h3>
+    <div>
+        <p>Data from server <b style="color: darkblue">{{data.message}}</b></p>
+        <p>Server Time: <b style="color: darkblue">{{data.serverTime}}</b></p>
+    </div>
+    <div>
+        <h4>Find Company Information</h4>
+        <form>
+            Søgetekst: <input type="text" style="width: 10em;" placeholder="Påkrævet">
+            Søgemulighed: <select style="padding: 1em">
+                <option value="Almindelig">Almindelig</option>
+                <option value="CVR">CVR</option>
+                <option value="Navn">Navn</option>
+                <option value="Produktionsenhed">Produktionsenhed</option>
+                <option value="Telefonnummer">Telefonnummer</option>        
+            </select>
+            Land: <select style="padding: 1em">
+                <option value="DK">DK</option>
+                <option value="NO">NO</option>
+            </select>
+        </form>
+    </div>
+    <button class="btn btn-success">Søg</button>   
 </html>

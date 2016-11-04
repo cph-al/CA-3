@@ -18,6 +18,12 @@ public class User
     private static final Gson gson = new Gson();
     private UserFacade facade = new UserFacade(Persistence.createEntityManagerFactory("pu_development"));    
 
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getSomething() {
+        return "{\"message\" : \"REST call accesible by only authenticated USERS\"}";
+    }
+    
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.TEXT_PLAIN)

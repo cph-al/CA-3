@@ -40,9 +40,7 @@ public class makeTestUsers
                 em.persist(both);
                 em.getTransaction().commit();
                 System.out.println("Created TEST Users");
-            } else {
-            facade.deleteUser("user");
-            System.out.println("Deleted user");}
+            }
         } catch (Exception ex)
         {
             Logger.getLogger(UserFacade.class.getName()).log(Level.SEVERE, null, ex);
