@@ -20,15 +20,20 @@ angular.module('myApp.view5', ['ngRoute'])
                     .error(function (data, status, headers, config) {
                         console.log("nope");
                     });
-            self.delete = function(index) {
-                        console.log(self.data[index]);
-                $http.delete('/api/admin/user/'+self.data[index])
-                        .success(function (data, status, headers, config) {
-                            console.log("deleting "+index);
+            self.delete = function (index) {
+                console.log(self.data[index]);
+                $http.delete('api/admin/user/' + self.data[index])
+                        .success(function () {
+                            console.log("deleted " + index);
+                            reload();
                         })
-                        .error(function (data, status, headers, config) {
+                        .error(function () {
                             console.log("failed");
                         });
             };
+            function reload() {
+                location.reload();
+            }
+            ;
         });
 
