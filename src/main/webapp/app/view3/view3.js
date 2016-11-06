@@ -19,16 +19,4 @@ angular.module('myApp.view3', ['ngRoute'])
             });
 
         }]);
-
-//        .controller('View3Ctrl', function ($http, $scope, $location) {
-//            $http.get('api/demoall')
-//                    .success(function (data, status, headers, config)
-//                    {
-//                        $scope.data = data;
-//                    })
-//                    .error(function (data, status, headers, config)
-//                    {
-//                        $location.path('/view1');
-//                    });
-//        });
         

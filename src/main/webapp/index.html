@@ -37,30 +37,30 @@
         <script src="app/components/services.js"></script>
     </head>
     <body ng-app="myApp">
-        <div class="container"  >
-        <form ng-controller="myCtrl as ctrl" ng-show="!isAuthenticated" ng-submit="ctrl.create()" style="padding: 1em">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createUser">Create User</button>
-            <div id="createUser" class="modal fade" role="dialog">
-                <div class="modal-dialog">
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Create User</h4>
-                            <h5 class="modal-title">Enter username and password</h5>
-                        </div>
-                        <div class="modal-body">
-                            <input id="newUsername" type="text" placeholder="Username" ng-model="ctrl.user.userName">
-                            <input id="newPassword" type="password" placeholder="Password" ng-model="ctrl.user.passwordHash">
+        <div class="container">          
+            <form ng-controller="myCtrl as ctrl" ng-show="!isAuthenticated" ng-submit="ctrl.create()" style="padding: 1em">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createUser">Create User</button>
+                <div id="createUser" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Create User</h4>
+                                <h5 class="modal-title">Enter username and password</h5>
+                            </div>
+                            <div class="modal-body">
+                                <input id="newUsername" type="text" placeholder="Username" ng-model="ctrl.user.userName">
+                                <input id="newPassword" type="password" placeholder="Password" ng-model="ctrl.user.passwordHash">
 
-                        </div>
-                        <div class="modal-footer">
-                            <input type="submit" id="createNewUser" class="submit btn btn-primary" value="Submit">
+                            </div>
+                            <div class="modal-footer">
+                                <input type="submit" id="createNewUser" class="submit btn btn-primary" value="Submit">
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </form>
+            </form>
             <nav class="navbar navbar-static-top  navbar-default " role="navigation" ng-controller="AppLoginCtrl">
                 <div class="container">
                     <div class="navbar-header">

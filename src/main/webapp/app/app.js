@@ -37,6 +37,14 @@ angular.module('myApp', [
                                 console.log("Doesn't work");
                             });
                 };
+                self.exchangeArray = [{desc: "DKK", rate: 1}, {desc: "EUR", rate: 7.44}];
+                self.amount = 10;
+                self.from;
+                self.to;
+                self.calc = function () {
+                    self.result = self.from / self.to * self.amount;
+                    self.result = self.result.toFixed(2);
+                };
             }]);
 
 
