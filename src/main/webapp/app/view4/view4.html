@@ -1,4 +1,5 @@
-<h3 style="padding-bottom: 1em">Exchange Rate</h3>
+<h3>Exchange Rate Information</h3>
+<h4 style="padding-bottom: 1em">Currency calculator</h4>
 <div ng-controller="View4Ctrl as ctrl">
     <form ng-submit="ctrl.calculate()">
         <select ng-model="ctrl.from">
@@ -14,7 +15,7 @@
         </select>
         <br>
         <div style="padding-bottom: 1em;padding-top: 1em">
-        <input type="text" placeholder="Amount" ng-model="ctrl.amount" style="width: 9em">
+        <input type="text" placeholder="Enter amount" ng-model="ctrl.amount" style="width: 9em">
         <input type="text" readonly ng-model="ctrl.result" style="border-style: hidden;font-weight: bold"><br>
         </div>
         <button class="btn btn-primary">Calculate</button>
